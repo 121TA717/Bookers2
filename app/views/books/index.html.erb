@@ -1,0 +1,68 @@
+<p id="notice"></p>
+<div class="container px-5 px-sm-0">
+
+  <div class="row">
+    <div class="col-md-3">
+      <h2>User info</h2>
+      <img src="https://bookers-level2.herokuapp.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaXRRIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--70ea2a302cdca3d01e1bf61a1090e32bbfdaf6e6/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVdscGFRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--4a929dbc7794f3c4610ba9ba5402762ad9cd1a14/default-image.jpg"><table class="table">
+      <tbody><tr></tr>
+      <tr>
+    	  <th>name</th>
+    	  <th><%= @user.name %></th>
+      </tr>
+      <tr>
+    	  <th>introduction</th>
+    	  <th></th>
+      </tr>
+      </tbody></table>
+
+
+      <%= link_to edit_user_path(@user.id), class:"btn btn-outline-secondary btn-block" do %>
+       <i class="fa fa-user-cog"></i>
+      <% end %>
+
+      <h2 class="mt-3">New book</h2>
+      <%= form_with model: @book, url: '/books', method: :post do |f| %>
+      <div class="form-group">
+        <label for="book_title">Title</label>
+        <%= f.text_field :title, class:"form-control" %>
+        <label>Opinion</label>
+        <%= f.text_area :body, class:"form-control" %><br>
+        <%= f.submit 'create Book',class:"btn btn-success" %><br>
+      <% end %>
+
+  </div>
+
+
+
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <h2>Books</h2>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+              <td>
+                <a href="/users/7368">
+                 <img src="https://bookers-level2.herokuapp.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaWxRIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c76cfa888204f838065783c293da814f04fec65c/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVZWcFZRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--596aecbd1e45058af6bad2ccaa755120cd0daa59/default-image.jpg">
+                </a>
+              </td>
+              <td><a class="book_5477" href="/books/5477">たのしいRuby</a></td>
+              <td>Rubyの入門におすすめです。</td>
+            </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+
+
