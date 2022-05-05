@@ -1,12 +1,17 @@
+    <% if flash[:notice] %>
+     <p id="notice">
+       <%= flash[:notice] %>
+     </p>
+    <% end %>
 
   <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">
       <h2>User info</h2>
-    
-    
+
+
       <%= image_tag @user.get_profile_image(100, 100) %>
-      
+
       <table class="table">
       <tbody><tr></tr>
       <tr>
@@ -15,11 +20,11 @@
       </tr>
       <tr>
     	  <th>introduction</th>
-    	  <th></th>
+    	  <th><%= @user.introduction %></th>
       </tr>
       </tbody>
       </table>
-  
+
 
 　  <%= link_to edit_user_path(@user.id), class:"btn btn-outline-secondary btn-block" do %>
        <i class="fa fa-user-cog"></i>
@@ -50,11 +55,13 @@
         </thead>
         <tbody>
         <tbody>
-          <tr>
             <% @books.each do |book| %>
+          <tr>
+              <td><%= image_tag @user.get_profile_image(80, 80) %></td>
               <td><%= book.title %></td>
-            <% end %>
+              <td><%= book.body %></td>
           </tr>
+            <% end %>
         </tbody>
       </table>
     </div>
