@@ -1,29 +1,31 @@
+     <% if flash[:notice] %>
      <p id="notice">
        <%= flash[:notice] %>
      </p>
        <% end %>
-       
-       <main>
         <p id="notice"></p>
         <div class="container">
         <div class="row">
        <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
   		 <h1>Editing Book</h1>
   		 <%= form_with model: @book do |f| %>
-  		 
-  		 <label for="book_title">Title</label>
-  		 <%= f.text_field :title %>
-  		 
-  		 <label for="book_opinion">Opinion</label>
-  		 <%= f.text_area :body %>
-    	
-       <div class="form-group">
-         
-        <%= f.submit "Update Book" %>
-        <input type="submit" name="commit" value="Update Book" class="btn btn-success" data-disable-with="Update Book">
-       </div>
-  		   <a class="book_5838" href="/books/5838">Show</a> |
-  		   <a class="back" href="/books">Back</a>
+     
+     <div class="form-group">
+  		   <label for="book_title">Title</label><br>
+  		   <%= f.text_field :title %>
+     </div>
+     
+     <div class="form-group">
+  		   <label for="book_opinion">Opinion</label><br>
+  		   <%= f.text_area :body %>
+     </div>
+     
+     <div class="form-group">
+       <td><%= f.submit "Update Book",class:"btn btn-success" %></td>
+     </div>
+     
+      <% end %>
+      <%= link_to "show", book_path(@book.id) %>|
+  		  <%= link_to "back", books_path %>
       </div>
       </div>
-      </div></main>
