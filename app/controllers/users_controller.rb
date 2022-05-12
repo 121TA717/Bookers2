@@ -11,6 +11,7 @@ class UsersController < ApplicationController
    @books = @user.books
    @profile_image = @user.profile_image
    @book = Book.new
+   @current_user = current_user
   end
 
   def edit
@@ -26,7 +27,6 @@ class UsersController < ApplicationController
       flash[:notice] = "You have update user successfully."
       redirect_to user_path(@user.id)
      else
-      @user = current_user
       render :edit
      end
   end

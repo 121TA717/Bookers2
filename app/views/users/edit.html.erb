@@ -1,16 +1,17 @@
-    <% if flash[:notice] %>
-     <p id="notice">
+      <% if flash[:notice] %>
+       <p id="notice">
        <%= flash[:notice] %>
-     </p>
-       <% end %>
-        <% if @user.errors.any? %>
+       </p>
+      <% end %>
+
+    <% if @user.errors.any? %>
        <%= @user.errors.count %>error prohibited this obj from being saved:
        <ul>
       <% @user.errors.full_messages.each do |message| %>
       <li><%= message %></li>
       <% end %>
       </ul>
-     <% end %>
+    <% end %>
 
 
 <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
@@ -29,9 +30,9 @@
 
   <div class="form-group">
     <label for="user_introduction">Introduction</label>
-    <textarea class="form-control introduction" name="user[introduction]" id="user_introduction"></textarea>
+    <%= f.text_area :introduction, placeholder:"説明文"%>
   </div>
 
-  <%= f.submit "Update user" %>
+  <%= f.submit "Update User" %>
 </div>
 <% end %>

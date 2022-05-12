@@ -11,10 +11,14 @@ class BooksController < ApplicationController
    @books = @user.books
    @profile_image = @user.profile_image
    @newbook = Book.new
+   @current_user = current_user
   end
 
   def edit
   @book = Book.find(params[:id])
+  if @book.user != current_user
+   redirect_to books_path
+  end
   end
 
   def create
@@ -29,7 +33,7 @@ class BooksController < ApplicationController
       render :index
 
    end
-   
+
   end
 
   def update
